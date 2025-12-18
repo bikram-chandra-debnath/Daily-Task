@@ -1,10 +1,76 @@
+import 'package:daily_task/constants/color.dart';
+import 'package:daily_task/constants/images.dart';
+import 'package:daily_task/model/todo_model.dart';
+import 'package:daily_task/widgets/headin_title.dart';
+import 'package:daily_task/widgets/search_box.dart';
+import 'package:daily_task/widgets/todo_items.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final todolist = TodoModel.todoList();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      appBar: customAppbar(),
+
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+
+        child: Column(
+          children: [
+            // searchbar
+            SearchBox(),
+
+            Expanded(
+              child: ListView(
+                children: [
+                  // Heading title
+                  HeadingTitle(),
+
+                  // To Do Lists
+                  for (TodoModel todoModel in todolist)
+                    TodoItems(todo: todoModel),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+
+      // Add new to do
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        shape: CircleBorder(),
+        child: Icon(Icons.add),
+      ),
+    );
   }
+}
+
+AppBar customAppbar() {
+  return AppBar(
+    backgroundColor: AppColors.background,
+    elevation: 0,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Icon(Icons.menu, color: AppColors.black, size: 30),
+        SizedBox(
+          height: 40,
+          width: 40,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image(
+              image: AssetImage(AppImages.profile),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }
