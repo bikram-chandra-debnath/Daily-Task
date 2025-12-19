@@ -1,8 +1,9 @@
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/images.dart';
-import 'package:daily_task/constants/text.dart';
 import 'package:daily_task/model/todo_model.dart';
+import 'package:daily_task/widgets/add_button.dart';
 import 'package:daily_task/widgets/headin_title.dart';
+import 'package:daily_task/widgets/input_filed.dart';
 import 'package:daily_task/widgets/search_box.dart';
 import 'package:daily_task/widgets/todo_items.dart';
 import 'package:flutter/material.dart';
@@ -35,43 +36,10 @@ class HomeScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Row(
               children: [
-                Expanded(child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-                  margin: EdgeInsets.only(bottom: 20,right: 20,left: 20),
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: const[
-                      BoxShadow(
-                        color: AppColors.grey,
-                        offset: Offset(0.0, 0.0),
-                        blurRadius: 10.0,
-                        spreadRadius: 0.0,
-                      )
-                    ],
-                    
-                    
-                  ),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      hintText: AppTexts.addNewTask,
-                      border: InputBorder.none,
-
-                    ),
-                  ),
-                )),
-
-                Container(
-                  
-                  margin: EdgeInsets.only(bottom: 20,right: 20),
-                  child: ElevatedButton(onPressed: (){}, child: Text("+",style: TextStyle(fontSize: 40),),style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.blue,
-                    foregroundColor: AppColors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    minimumSize: Size(60, 60),
-                    elevation: 10,
-                    
-                  ),))
+                //custom text field
+                InputField(),
+                // custom button
+                AddButton()
               ],
              
             ),
@@ -81,6 +49,10 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
 
 class TodoListWithTitle extends StatelessWidget {
   TodoListWithTitle({super.key});
