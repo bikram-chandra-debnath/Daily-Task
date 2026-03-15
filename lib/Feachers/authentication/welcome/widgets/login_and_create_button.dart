@@ -1,7 +1,9 @@
+import 'package:daily_task/Feachers/authentication/Login/login_screen.dart';
 import 'package:daily_task/common/buttons/elevated_button.dart';
 import 'package:daily_task/common/buttons/outlined_button.dart';
 import 'package:daily_task/constants/text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginAndCreateAccountButtons extends StatelessWidget {
   const LoginAndCreateAccountButtons({super.key});
@@ -12,10 +14,9 @@ class LoginAndCreateAccountButtons extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 40),
       child: Column(
         children: [
-
           // login button
           AppElevatedButton(
-            onPressed: () {},
+            onPressed: () => Get.to(() => Login()),
             child: Text(
               AppTexts.loginCapital,
               style: TextStyle(fontWeight: FontWeight.w400),

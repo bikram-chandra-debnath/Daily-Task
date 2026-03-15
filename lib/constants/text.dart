@@ -9,6 +9,9 @@ static const String backCapital = "BACK";
 static const String skipCapital = "SKIP";
 static const String loginCapital = "LOGIN";
 static const String createAccountCapital = "CREATE ACCOUNT";
+static const String loginGoogle = "Login with Google";
+static const String loginApple = "Login with Apple";
+static const String register = "Register";
 
 
 
@@ -29,6 +32,15 @@ static const String createAccountCapital = "CREATE ACCOUNT";
 
 static const String  welcomeTitle = "Welcome to UpTodo";
 static const String  welcomeSubtitle = "Please login to your account or create new account to continue";
+
+// ------[Login screen]--------
+
+static const String login = "Login";
+static const String userName = "Username";
+static const String password = "Password";
+static const String enterUsername ="Enter your Username";
+static const String enterPasword ="Enter your Password";
+static const String donotHaveAccount ="Don't have accout?";
 
 
 
