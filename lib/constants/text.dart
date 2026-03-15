@@ -7,6 +7,8 @@ static const String nextCapital = "NEXT";
 static const String getStartedCapital = "GET STARTED";
 static const String backCapital = "BACK";
 static const String skipCapital = "SKIP";
+static const String loginCapital = "LOGIN";
+static const String createAccountCapital = "CREATE ACCOUNT";
 
 
 
@@ -23,12 +25,19 @@ static const String skipCapital = "SKIP";
   static const String onboardingSubtitle2 = "In Uptodo  you can create your personalized routine to stay productive"; 
   static const String onboardingSubtitle3 = "You can organize your daily tasks by adding your tasks into separate categories";  
 
+// ----------[Welcome]-----------
+
+static const String  welcomeTitle = "Welcome to UpTodo";
+static const String  welcomeSubtitle = "Please login to your account or create new account to continue";
+
 
 
   static const String appName = "Daily Task";
   static const String search = "Search";
   static const String allToDo = "All ToDos";
   static const String addNewTask = "Add new task";
+
+
 
 
 

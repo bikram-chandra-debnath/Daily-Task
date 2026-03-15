@@ -1,4 +1,4 @@
-import 'package:daily_task/Feachers/authentication/welcome_page.dart';
+import 'package:daily_task/Feachers/authentication/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/route_manager.dart';
