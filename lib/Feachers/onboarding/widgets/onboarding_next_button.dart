@@ -19,11 +19,14 @@ class NextButton extends StatelessWidget {
       bottom: 20,
       right: 20,
       child: Obx(
-        ()=> AppElevatedButton(
-          onPressed: () {
-            controller.onNext();
-          },
-          child: Text( controller.currentPage.value==2? AppTexts.getStartedCapital: AppTexts.nextCapital),
+        ()=> SizedBox(
+          width:controller.currentPage.value==2?150: 100,
+          child: AppElevatedButton(
+            onPressed: () {
+              controller.onNext();
+            },
+            child: Text( controller.currentPage.value==2? AppTexts.getStartedCapital: AppTexts.nextCapital),
+          ),
         ),
       ),
     );
