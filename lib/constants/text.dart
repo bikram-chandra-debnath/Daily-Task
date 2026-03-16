@@ -12,6 +12,8 @@ static const String createAccountCapital = "CREATE ACCOUNT";
 static const String loginGoogle = "Login with Google";
 static const String loginApple = "Login with Apple";
 static const String register = "Register";
+static const String completed = "Completed";
+static const String inComplet = "Incomplet";
 
 
 

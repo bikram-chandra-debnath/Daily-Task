@@ -11,6 +11,11 @@ class AppImages{
   static const String onboardingImage2= "assets/onboarding/image2.svg";
   static const String onboardingImage3= "assets/onboarding/image3.svg";
 
+  // home 
+
+  static const String circleLeft = "assets/shape/circle_left.svg";
+  static const String circleRight = "assets/shape/circle_right.svg";
+
 
   static const String profile = "assets/images/profile.jpg";
 }
