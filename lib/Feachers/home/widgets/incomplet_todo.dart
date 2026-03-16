@@ -1,7 +1,6 @@
+import 'package:daily_task/common/home/list_tile.dart';
 import 'package:daily_task/constants/color.dart';
-import 'package:daily_task/constants/icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class IncompletToDo extends StatelessWidget {
   const IncompletToDo({
@@ -20,21 +19,7 @@ class IncompletToDo extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder:
-            (context, index) => ListTile(
-              title: Text(
-                "Study lesson",
-                style: TextStyle(color: AppColors.white),
-              ),
-              leading: CircleAvatar(
-                backgroundColor: Colors.amber,
-                child: SvgPicture.asset(AppIcons.apple),
-              ),
-              trailing: Checkbox(
-                side: BorderSide(color: AppColors.white),
-                value: false,
-                onChanged: (value) {},
-              ),
-            ),
+            (context, index) => CustomListTile(title: "Study lesson",),
         separatorBuilder:
             (context, index) => Divider(
               color: AppColors.grey,
