@@ -1,4 +1,3 @@
-
 import 'package:daily_task/constants/color.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +7,9 @@ class AppInputField extends StatelessWidget {
     this.hintText,
     this.contentPadding = const EdgeInsets.only(bottom: 10, left: 10),
     this.obscureText = false,
-    this.controller, this.suffix,
+    this.controller,
+    this.suffix,
+    this.maxLine = 1,
   });
 
   final String? hintText;
@@ -16,11 +17,11 @@ class AppInputField extends StatelessWidget {
   final bool obscureText;
   final TextEditingController? controller;
   final Widget? suffix;
+  final int maxLine;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48,
       width: double.maxFinite,
       decoration: BoxDecoration(
         color: Color(0xff1D1D1D),
@@ -34,17 +35,21 @@ class AppInputField extends StatelessWidget {
       ),
       child: Center(
         child: TextFormField(
+          maxLines: maxLine,
           controller: controller,
           obscureText: obscureText,
-        
+
           cursorColor: AppColors.white,
           cursorWidth: 0.5,
           cursorHeight: 15,
           style: TextStyle(color: AppColors.white),
           decoration: InputDecoration(
-            suffix: suffix,
+            suffixIcon: suffix,
             hintText: hintText,
-            hintStyle: TextStyle(color: AppColors.grey, fontWeight: FontWeight.w400),
+            hintStyle: TextStyle(
+              color: AppColors.grey,
+              fontWeight: FontWeight.w400,
+            ),
             contentPadding: contentPadding,
             border: OutlineInputBorder(borderSide: BorderSide.none),
             disabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
