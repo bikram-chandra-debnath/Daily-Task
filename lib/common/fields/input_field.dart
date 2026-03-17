@@ -8,13 +8,14 @@ class AppInputField extends StatelessWidget {
     this.hintText,
     this.contentPadding = const EdgeInsets.only(bottom: 10, left: 10),
     this.obscureText = false,
-    this.controller,
+    this.controller, this.suffix,
   });
 
   final String? hintText;
   final EdgeInsetsGeometry contentPadding;
   final bool obscureText;
   final TextEditingController? controller;
+  final Widget? suffix;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class AppInputField extends StatelessWidget {
           cursorHeight: 15,
           style: TextStyle(color: AppColors.white),
           decoration: InputDecoration(
+            suffix: suffix,
             hintText: hintText,
             hintStyle: TextStyle(color: AppColors.grey, fontWeight: FontWeight.w400),
             contentPadding: contentPadding,

@@ -9,7 +9,7 @@ class CustomInputField extends StatelessWidget {
     this.hintText,
      this.obscureText= false,
     this.controller,
-     this.contentPadding=const EdgeInsets.only(bottom: 10, left: 10),
+     this.contentPadding=const EdgeInsets.only(bottom: 10, left: 10),  this.suffix,
   });
 
   final String lableText;
@@ -17,6 +17,7 @@ class CustomInputField extends StatelessWidget {
   final bool obscureText;
   final TextEditingController? controller;
   final EdgeInsetsGeometry contentPadding;
+  final Widget? suffix;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class CustomInputField extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(lableText, style: TextStyle(color: AppColors.white, )),
+        Text(lableText, style: TextStyle(color: AppColors.white,fontWeight: FontWeight.w600 )),
         SizedBox(height: 10),
 
         AppInputField(
@@ -32,6 +33,7 @@ class CustomInputField extends StatelessWidget {
           controller: controller,
           hintText: hintText,
           obscureText: obscureText,
+          suffix: suffix,
         ),
       ],
     );
