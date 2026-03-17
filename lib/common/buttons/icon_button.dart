@@ -12,34 +12,32 @@ class AppIconButton extends StatelessWidget {
     this.padding,
     this.minimumSize,
     this.tapTargetSize,
-    this.foregroundColor,
-    this.iconSize,
+    this.iconSize=16,  this.iconColor= AppColors.white,
   });
-
+  
   final VoidCallback onPressed;
   final String icon;
   final Color backgroundColor;
   final EdgeInsetsGeometry? padding;
   final Size? minimumSize;
   final MaterialTapTargetSize? tapTargetSize;
-  final Color? foregroundColor;
-  final double? iconSize;
+  final Color iconColor;
+  final double iconSize;
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      style: IconButton.styleFrom(
-        
-        backgroundColor: backgroundColor,
-        padding: padding,
-        minimumSize: minimumSize,
-        tapTargetSize: tapTargetSize,
-        foregroundColor: foregroundColor,
-        iconSize: iconSize,
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: IconButton(
+        style: IconButton.styleFrom(
+          backgroundColor: backgroundColor,
+          padding: padding,
+          minimumSize: minimumSize,
+          tapTargetSize: tapTargetSize,
+        ),
+        onPressed: onPressed,
+        icon: SvgPicture.asset(icon, color: iconColor,height: iconSize,width: iconSize,),
       ),
-
-      onPressed: onPressed,
-      icon: SvgPicture.asset(icon),
     );
   }
 }
