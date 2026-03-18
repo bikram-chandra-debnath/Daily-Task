@@ -46,15 +46,12 @@ class UpperSection extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  leading: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: AppIconButton(
-                      padding: EdgeInsets.all(15),
-                      //backgroundColor: Colors.transparent,
-                      onPressed: () {},
-
-                      icon: AppIcons.back,
-                    ),
+                  leading: AppIconButton(
+                    padding: EdgeInsets.all(15),
+                    //backgroundColor: Colors.transparent,
+                    onPressed: () {},
+                  
+                    icon: AppIcons.back,
                   ),
                 ),
 

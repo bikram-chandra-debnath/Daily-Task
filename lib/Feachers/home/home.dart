@@ -1,8 +1,10 @@
+import 'package:daily_task/Feachers/add%20task/add_task.dart';
 import 'package:daily_task/Feachers/home/widgets/home_upper_section.dart';
 import 'package:daily_task/Feachers/home/widgets/mytodo_list.dart';
 import 'package:daily_task/common/buttons/elevated_button.dart';
 import 'package:daily_task/constants/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -27,7 +29,7 @@ class Home extends StatelessWidget {
       ),
     bottomNavigationBar: Padding(
       padding: const EdgeInsets.only(left: 24.0, right: 24, bottom: 20),
-      child: AppElevatedButton(onPressed: (){}, child: Text("Add New Task")),
+      child: AppElevatedButton(onPressed: ()=> Get.to(()=> AddTask()), child: Text("Add New Task")),
     ),
     );
   }

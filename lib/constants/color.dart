@@ -15,5 +15,8 @@ class AppColors{
    static const  Color lightgrey = Color(0xffE5E5E5);
 
    static const  Color background = Color(0xffeeeff5);
+   static const  Color buttonBackground1 = Color.fromARGB(255, 156, 167, 173);
+   static const  Color buttonBackground2 = Color.fromARGB(255, 162, 157, 174);
+   static const  Color buttonBackground3 = Color.fromARGB(255, 168, 162, 140);
 
 }

@@ -14,6 +14,7 @@ static const String loginApple = "Login with Apple";
 static const String register = "Register";
 static const String completed = "Completed";
 static const String inComplet = "Incomplet";
+static const String save = "Save";
 
 
 
@@ -44,12 +45,20 @@ static const String enterUsername ="Enter your Username";
 static const String enterPasword ="Enter your Password";
 static const String donotHaveAccount ="Don't have accout?";
 
+// ------[New task screen]------
 
+static const String taskTitle = "Task Title";
+static const String category = "Category";
+static const String addNewTask = "Add New Task";
+static const String date_ = "Date";
+  static const String time = "Time";
+  static const String note = "Note";
 
   static const String appName = "Daily Task";
   static const String search = "Search";
   static const String allToDo = "All ToDos";
-  static const String addNewTask = "Add new task";
+  
+  
 
 
 

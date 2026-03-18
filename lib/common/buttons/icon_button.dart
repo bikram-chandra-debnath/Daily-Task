@@ -36,6 +36,7 @@ class AppIconButton extends StatelessWidget {
           tapTargetSize: tapTargetSize,
         ),
         onPressed: onPressed,
+        // ignore: deprecated_member_use
         icon: SvgPicture.asset(icon, color: iconColor,height: iconSize,width: iconSize,),
       ),
     );
