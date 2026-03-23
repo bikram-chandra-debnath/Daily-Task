@@ -34,7 +34,7 @@ class MyTodos extends StatelessWidget {
     
               SizedBox(height: 20),
               
-              CompletedTodo(),
+              // CompletedTodo(),
     
               SizedBox(height: 50),
             ],
