@@ -19,7 +19,7 @@ class IncompletToDo extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemBuilder:
-            (context, index) => CustomListTile(title: "Study lesson",),
+            (context, index) => CustomListTile(title: "Study lesson",description: "Ihave to study until 2 pm",),
         separatorBuilder:
             (context, index) => Divider(
               color: AppColors.grey,

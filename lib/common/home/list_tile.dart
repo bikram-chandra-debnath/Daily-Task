@@ -1,15 +1,17 @@
+import 'package:daily_task/common/buttons/icon_button.dart';
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
-    super.key, required this.title,  this.isCompleted=false,
+    super.key,
+    required this.title,
+    this.isCompleted = false, required this.description,
   });
 
- final String title;
- final bool isCompleted;
+  final String title , description;
+  final bool isCompleted;
 
   @override
   Widget build(BuildContext context) {
@@ -17,27 +19,47 @@ class CustomListTile extends StatelessWidget {
       title: Text(
         "Study lesson",
         style: TextStyle(
-          color: AppColors.white.withValues(
-            alpha: isCompleted? 0.5:1,
-          ),
-          decoration:isCompleted? TextDecoration.lineThrough:TextDecoration.none,
-          decorationColor: AppColors.white,
+          color: AppColors.white.withValues(alpha: isCompleted ? 0.5 : 1),
+          decoration:
+              isCompleted ? TextDecoration.lineThrough : TextDecoration.none,
+          decorationColor: AppColors.grey,
         ),
       ),
-      leading: CircleAvatar(
-        backgroundColor: Colors.amber.withValues(
-          alpha:isCompleted? 0.5 : 1,
-        ),
-        child: Opacity(
-          opacity:  isCompleted? 0.5:1,
-          child: SvgPicture.asset(AppIcons.apple),
-        ),
+      subtitle: Text(
+        description,
+        style: TextStyle(color: AppColors.grey,),
+        
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
       ),
-      trailing: Checkbox(
+      leading: Checkbox(
         side: BorderSide(color: AppColors.white),
-        activeColor: AppColors.primary,
-        value:isCompleted? true:false,
+        activeColor: AppColors.primary.withValues(alpha:0.3),
+        checkColor: AppColors.white.withValues(alpha: 0.5),
+        value: isCompleted ? true : false,
         onChanged: (value) {},
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          isCompleted? SizedBox():AppIconButton(
+            backgroundColor: Colors.transparent,
+            onPressed: () {},
+            icon: AppIcons.edit,
+            padding: EdgeInsets.zero,
+            minimumSize: Size(25, 25),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
+          AppIconButton(
+            backgroundColor: Colors.transparent,
+            onPressed: () {},
+            icon: AppIcons.delete,
+            padding: EdgeInsets.zero,
+            minimumSize: Size(25, 25),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            iconColor: AppColors.red,
+          ),
+        ],
       ),
     );
   }
