@@ -17,7 +17,7 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        "Study lesson",
+        title,
         style: TextStyle(
           color: AppColors.white.withValues(alpha: isCompleted ? 0.5 : 1),
           decoration:
