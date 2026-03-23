@@ -1,7 +1,7 @@
 
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/images.dart';
-import 'package:daily_task/controller/splash_controller.dart';
+import 'package:daily_task/controller/splash/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
