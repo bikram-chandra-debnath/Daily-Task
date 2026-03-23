@@ -1,4 +1,4 @@
-import 'package:daily_task/view/add%20task/widgets/categories.dart';
+import 'package:daily_task/controller/add_task/add_task_controller.dart';
 import 'package:daily_task/view/add%20task/widgets/date_and_time.dart';
 import 'package:daily_task/view/add%20task/widgets/upper_heading.dart';
 import 'package:daily_task/common/buttons/elevated_button.dart';
@@ -6,11 +6,13 @@ import 'package:daily_task/common/fields/custom_input_field.dart';
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AddTask extends StatelessWidget {
   const AddTask({super.key});
   @override
   Widget build(BuildContext context) {
+    final addtaskcontroller= Get.put(AddTaskController());
     return Scaffold(
       backgroundColor: AppColors.black,
       body: Stack(
@@ -26,15 +28,17 @@ class AddTask extends StatelessWidget {
                     SizedBox(),
                     // Todo Title writing section
                     CustomInputField(
+                      controller: addtaskcontroller.titleController,
                       lableText: AppTexts.taskTitle,
                       hintText: AppTexts.taskTitle,
                     ),
                     // Todo Category  section
-                    Categories(),
+                    //Categories(),
                     // Todo date and time  section
                     DateAndTime(),
                     // Todo Note writing  section
                     CustomInputField(
+                      controller: addtaskcontroller.descriptionController,
                       lableText: AppTexts.note,
                       hintText: AppTexts.note,
                       maxLine: 6,
