@@ -1,9 +1,9 @@
-import 'package:daily_task/Feachers/onboarding/widgets/onboarding_back_button.dart';
-import 'package:daily_task/Feachers/onboarding/widgets/onboarding_dot_indicator.dart';
-import 'package:daily_task/Feachers/onboarding/widgets/onboarding_next_button.dart';
-import 'package:daily_task/Feachers/onboarding/widgets/onboarding_page.dart';
-import 'package:daily_task/Feachers/onboarding/widgets/onboarding_skip_button.dart';
-import 'package:daily_task/Feachers/onboarding/widgets/title_and_subtitle.dart';
+import 'package:daily_task/view/onboarding/widgets/onboarding_back_button.dart';
+import 'package:daily_task/view/onboarding/widgets/onboarding_dot_indicator.dart';
+import 'package:daily_task/view/onboarding/widgets/onboarding_next_button.dart';
+import 'package:daily_task/view/onboarding/widgets/onboarding_page.dart';
+import 'package:daily_task/view/onboarding/widgets/onboarding_skip_button.dart';
+import 'package:daily_task/view/onboarding/widgets/title_and_subtitle.dart';
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/images.dart';
 import 'package:daily_task/constants/text.dart';

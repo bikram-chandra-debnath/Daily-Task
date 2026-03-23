@@ -1,4 +1,4 @@
-import 'package:daily_task/Feachers/authentication/Login/login_screen.dart';
+import 'package:daily_task/view/authentication/Login/login_screen.dart';
 import 'package:daily_task/common/buttons/elevated_button.dart';
 import 'package:daily_task/common/buttons/outlined_button.dart';
 import 'package:daily_task/constants/text.dart';

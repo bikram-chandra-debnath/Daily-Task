@@ -1,4 +1,4 @@
-import 'package:daily_task/Feachers/authentication/Login/widgets/registration.dart';
+import 'package:daily_task/view/authentication/Login/widgets/registration.dart';
 import 'package:daily_task/common/buttons/outlined_button.dart';
 import 'package:daily_task/common/widgets/or_divider.dart';
 import 'package:daily_task/constants/icons.dart';

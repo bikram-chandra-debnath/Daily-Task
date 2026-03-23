@@ -1,6 +1,6 @@
-import 'package:daily_task/Feachers/authentication/Login/widgets/login_form.dart';
-import 'package:daily_task/Feachers/authentication/Login/widgets/login_lower_section.dart';
-import 'package:daily_task/Feachers/authentication/Login/widgets/login_upper_section.dart';
+import 'package:daily_task/view/authentication/Login/widgets/login_form.dart';
+import 'package:daily_task/view/authentication/Login/widgets/login_lower_section.dart';
+import 'package:daily_task/view/authentication/Login/widgets/login_upper_section.dart';
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/icons.dart';
 import 'package:flutter/material.dart';

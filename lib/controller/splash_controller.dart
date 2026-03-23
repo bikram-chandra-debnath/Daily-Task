@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:daily_task/Feachers/onboarding/Screens/onboarding.dart';
+import 'package:daily_task/view/onboarding/Screens/onboarding.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {

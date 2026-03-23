@@ -1,5 +1,5 @@
-import 'package:daily_task/Feachers/home/widgets/completed_todo.dart';
-import 'package:daily_task/Feachers/home/widgets/incomplet_todo.dart';
+import 'package:daily_task/view/home/widgets/completed_todo.dart';
+import 'package:daily_task/view/home/widgets/incomplet_todo.dart';
 import 'package:flutter/material.dart';
 
 class MyTodos extends StatelessWidget {

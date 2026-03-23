@@ -1,6 +1,6 @@
-import 'package:daily_task/Feachers/add%20task/widgets/categories.dart';
-import 'package:daily_task/Feachers/add%20task/widgets/date_and_time.dart';
-import 'package:daily_task/Feachers/add%20task/widgets/upper_heading.dart';
+import 'package:daily_task/view/add%20task/widgets/categories.dart';
+import 'package:daily_task/view/add%20task/widgets/date_and_time.dart';
+import 'package:daily_task/view/add%20task/widgets/upper_heading.dart';
 import 'package:daily_task/common/buttons/elevated_button.dart';
 import 'package:daily_task/common/fields/custom_input_field.dart';
 import 'package:daily_task/constants/color.dart';

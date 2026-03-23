@@ -1,5 +1,5 @@
-import 'package:daily_task/Feachers/authentication/welcome/widgets/headline_subtitle.dart';
-import 'package:daily_task/Feachers/authentication/welcome/widgets/login_and_create_button.dart';
+import 'package:daily_task/view/authentication/welcome/widgets/headline_subtitle.dart';
+import 'package:daily_task/view/authentication/welcome/widgets/login_and_create_button.dart';
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/icons.dart';
 import 'package:flutter/material.dart';

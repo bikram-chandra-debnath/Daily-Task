@@ -1,4 +1,4 @@
-import 'package:daily_task/Feachers/home/home.dart';
+import 'package:daily_task/view/home/home.dart';
 import 'package:daily_task/common/buttons/elevated_button.dart';
 import 'package:daily_task/common/fields/custom_input_field.dart';
 import 'package:daily_task/constants/text.dart';

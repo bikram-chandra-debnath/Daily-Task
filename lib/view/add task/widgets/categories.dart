@@ -1,5 +1,5 @@
 
-import 'package:daily_task/Feachers/add%20task/widgets/category_button.dart';
+import 'package:daily_task/view/add%20task/widgets/category_button.dart';
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/icons.dart';
 import 'package:daily_task/constants/text.dart';
