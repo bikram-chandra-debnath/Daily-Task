@@ -1,8 +1,6 @@
 
 import 'package:daily_task/common/appbar/custom_appbar.dart';
-import 'package:daily_task/common/buttons/icon_button.dart';
 import 'package:daily_task/constants/color.dart';
-import 'package:daily_task/constants/icons.dart';
 import 'package:daily_task/constants/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,13 +44,7 @@ class UpperSection extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  leading: AppIconButton(
-                    padding: EdgeInsets.all(15),
-                    //backgroundColor: Colors.transparent,
-                    onPressed: () {},
                   
-                    icon: AppIcons.back,
-                  ),
                 ),
 
                 SizedBox(height: 10),
