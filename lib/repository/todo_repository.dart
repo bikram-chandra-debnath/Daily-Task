@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/controller/add_task/add_task_controller.dart';
 import 'package:daily_task/model/todo_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/route_manager.dart';
