@@ -42,11 +42,19 @@ class IncompletToDo extends StatelessWidget {
               itemCount: todos!.length.toInt(),
             );
           } else if (!snapshot.hasData) {
-            return Text(" No Task added");
+            return RoundedContainer(
+              width: double.maxFinite,
+              height: 500,
+              child: Text(" No Task added"));
           } else if (snapshot.hasError) {
-            return Text("Error data!");
+            return RoundedContainer(width: double.maxFinite,
+              height: 500,
+              child: Text("Error data!"));
           } else {
-            return Text("Failed to load data");
+            return RoundedContainer(
+              width: double.maxFinite,
+              height: 500,
+              child: Text("Failed to load data"));
           }
         },
       ),
