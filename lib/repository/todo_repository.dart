@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:daily_task/model/todo_model.dart';
@@ -9,8 +11,6 @@ import 'package:http/http.dart';
 class TodoRepository extends GetxController{
   static TodoRepository get instance => Get.find();
 
-  
-
 Stream<List<TodoModel>> fetchData() async* {
   List<TodoModel> todos = [];
   final url = "https://69bfab7a72ca04f3bcb8ecaf.mockapi.io/api/todolist";
@@ -21,7 +21,6 @@ Stream<List<TodoModel>> fetchData() async* {
     todos = (data as List)
         .map((item) => TodoModel.fromJson(item))
         .toList();
-
     print("data is $todos");
     yield todos;
   } else {

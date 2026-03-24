@@ -1,4 +1,4 @@
-import 'package:daily_task/view/home/widgets/completed_todo.dart';
+
 import 'package:daily_task/view/home/widgets/incomplet_todo.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +16,7 @@ class MyTodos extends StatelessWidget {
       right: 0,
       child: Container(
         padding: EdgeInsets.zero,
-        margin: EdgeInsets.symmetric(horizontal: 24),
+        margin: EdgeInsets.symmetric(horizontal: 20),
     
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(

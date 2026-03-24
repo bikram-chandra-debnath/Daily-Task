@@ -1,3 +1,5 @@
+// ignore_for_file: strict_top_level_inference
+
 import 'package:daily_task/view/authentication/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
