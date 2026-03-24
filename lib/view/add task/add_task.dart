@@ -5,14 +5,15 @@ import 'package:daily_task/common/buttons/elevated_button.dart';
 import 'package:daily_task/common/fields/custom_input_field.dart';
 import 'package:daily_task/constants/color.dart';
 import 'package:daily_task/constants/text.dart';
+import 'package:daily_task/view_model/todo_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class AddTask extends StatelessWidget {
   const AddTask({super.key});
   @override
   Widget build(BuildContext context) {
-    final addtaskcontroller= Get.put(AddTaskController());
+    final addtaskcontroller = AddTaskController.instance;
+    final viewModelController = TodoViewModel.instance;
     return Scaffold(
       backgroundColor: AppColors.black,
       body: Stack(
@@ -56,7 +57,13 @@ class AddTask extends StatelessWidget {
 
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: AppElevatedButton(onPressed: () {}, child: Text(AppTexts.save)),
+
+        child: AppElevatedButton(
+          onPressed:viewModelController.addDataApi,
+            
+          
+          child: Text(AppTexts.save),
+        ),
       ),
     );
   }

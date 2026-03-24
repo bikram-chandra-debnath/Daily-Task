@@ -2,30 +2,60 @@
 
 import 'dart:convert';
 
+import 'package:daily_task/constants/color.dart';
+import 'package:daily_task/controller/add_task/add_task_controller.dart';
 import 'package:daily_task/model/todo_model.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
+import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:http/http.dart';
 
-
-class TodoRepository extends GetxController{
+class TodoRepository extends GetxController {
   static TodoRepository get instance => Get.find();
 
-Stream<List<TodoModel>> fetchData() async* {
-  List<TodoModel> todos = [];
-  final url = "https://69bfab7a72ca04f3bcb8ecaf.mockapi.io/api/todolist";
-  final response = await get(Uri.parse(url));
+  final addtaskController = Get.put(AddTaskController());
 
-  if (response.statusCode == 200) {
-    final data = jsonDecode(response.body);
-    todos = (data as List)
-        .map((item) => TodoModel.fromJson(item))
-        .toList();
-    print("data is $todos");
-    yield todos;
-  } else {
-    throw Exception("Failed to load data");
+  Stream<List<TodoModel>> fetchData() async* {
+    List<TodoModel> todos = [];
+    final url = "https://69bfab7a72ca04f3bcb8ecaf.mockapi.io/api/todolist";
+    final response = await get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      todos = (data as List).map((item) => TodoModel.fromJson(item)).toList();
+      print("data is $todos");
+      yield todos;
+    } else {
+      throw Exception("Failed to load data");
+    }
   }
-}
 
+  Future<void> addData() async {
+    final url = "https://69bfab7a72ca04f3bcb8ecaf.mockapi.io/api/todolist";
+    final response = await post(
+      Uri.parse(url),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({
+        "title": addtaskController.titleController.text,
+        "description": addtaskController.descriptionController.text,
+        "isCompleted": false,
+      }),
+    );
+
+    if (response.statusCode == 201) {
+      Get.snackbar("Succesful", "New task added successfully", colorText: Colors.green);
+      addtaskController.titleController.clear();
+      addtaskController.descriptionController.clear();
+      debugPrint(response.body);
+    } else {
+      Get.snackbar(
+        "Failled",
+        "Add New Task Failled!",
+        colorText: AppColors.red,
+      );
+      debugPrint("Error Code is : ${response.statusCode}");
+    }
+  }
 }
