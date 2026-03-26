@@ -9,7 +9,9 @@ import 'package:daily_task/view_model/todo_view_model.dart';
 import 'package:flutter/material.dart';
 
 class AddTask extends StatelessWidget {
-  const AddTask({super.key});
+  const AddTask({super.key, this.id});
+
+  final String? id;
   @override
   Widget build(BuildContext context) {
     final addtaskcontroller = AddTaskController.instance;
@@ -59,7 +61,15 @@ class AddTask extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
 
         child: AppElevatedButton(
-          onPressed:viewModelController.addDataApi,
+          onPressed:(){
+            if(id ==null){ 
+               viewModelController.addDataApi();
+               }else{
+                viewModelController.updateTaskApi(id!);
+               }
+
+
+          } ,
             
           
           child: Text(AppTexts.save),

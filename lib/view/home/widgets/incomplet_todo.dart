@@ -1,7 +1,9 @@
 import 'package:daily_task/common/home/list_tile.dart';
 import 'package:daily_task/common/widgets/rounded_container.dart';
 import 'package:daily_task/constants/color.dart';
+import 'package:daily_task/controller/add_task/add_task_controller.dart';
 import 'package:daily_task/model/todo_model.dart';
+import 'package:daily_task/view/add%20task/add_task.dart';
 import 'package:daily_task/view/home/widgets/loading.dart';
 import 'package:daily_task/view_model/todo_view_model.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +15,8 @@ class IncompletToDo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModelController = Get.put(TodoViewModel());
+    final addtaskController = AddTaskController.instance;
     return RoundedContainer(
-      
       child: StreamBuilder<List<TodoModel>>(
         stream: viewModelController.fetchTodoApi(),
         builder: (context, snapshot) {
@@ -28,6 +30,15 @@ class IncompletToDo extends StatelessWidget {
               shrinkWrap: true,
               itemBuilder:
                   (context, index) => CustomListTile(
+                    onDelete: () {},
+                    onEdit: () {
+                      Get.to(() => AddTask(id: todos[index].id.toString()));
+                      addtaskController.titleController.text =
+                          todos[index].title.toString();
+                      addtaskController.descriptionController.text =
+                          todos[index].description.toString();
+                    },
+
                     title: todos[index].title.toString(),
                     description: todos[index].description.toString(),
                   ),
@@ -45,16 +56,20 @@ class IncompletToDo extends StatelessWidget {
             return RoundedContainer(
               width: double.maxFinite,
               height: 500,
-              child: Text(" No Task added"));
+              child: Text(" No Task added"),
+            );
           } else if (snapshot.hasError) {
-            return RoundedContainer(width: double.maxFinite,
+            return RoundedContainer(
+              width: double.maxFinite,
               height: 500,
-              child: Text("Error data!"));
+              child: Text("Error data!"),
+            );
           } else {
             return RoundedContainer(
               width: double.maxFinite,
               height: 500,
-              child: Text("Failed to load data"));
+              child: Text("Failed to load data"),
+            );
           }
         },
       ),

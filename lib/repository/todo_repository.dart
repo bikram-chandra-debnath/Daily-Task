@@ -44,7 +44,12 @@ class TodoRepository extends GetxController {
     );
 
     if (response.statusCode == 201) {
-      Get.snackbar("Succesful", "New task added successfully", colorText: Colors.green);
+      Get.snackbar(
+        "Succesful",
+        "New task added successfully",
+        colorText: Colors.green,
+        snackPosition: SnackPosition.BOTTOM,
+      );
       addtaskController.titleController.clear();
       addtaskController.descriptionController.clear();
       debugPrint(response.body);
@@ -53,7 +58,35 @@ class TodoRepository extends GetxController {
         "Failled",
         "Add New Task Failled!",
         colorText: AppColors.red,
+        snackPosition: SnackPosition.BOTTOM,
       );
+      debugPrint("Error Code is : ${response.statusCode}");
+    }
+  }
+
+  Future<void> updateTask(String id) async {
+    final url = "https://69bfab7a72ca04f3bcb8ecaf.mockapi.io/api/todolist/$id";
+
+    final response = await put(
+      Uri.parse(url),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({
+        "title": addtaskController.titleController.text,
+        "description": addtaskController.descriptionController.text,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      Get.snackbar(
+        "Succesful",
+        "Task updated successfully",
+        colorText: Colors.green,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      addtaskController.titleController.clear();
+      addtaskController.descriptionController.clear();
+    } else {
+      Get.snackbar("Failled", "Task update Failled!", colorText: AppColors.red,snackPosition: SnackPosition.BOTTOM);
       debugPrint("Error Code is : ${response.statusCode}");
     }
   }

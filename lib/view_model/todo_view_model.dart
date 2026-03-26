@@ -4,32 +4,42 @@ import 'package:daily_task/repository/todo_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
-class TodoViewModel extends GetxController{
+class TodoViewModel extends GetxController {
   static TodoViewModel get instance => Get.find();
-  
+
   final controller = Get.put(TodoRepository());
   final addtaskcontroller = AddTaskController.instance;
 
-Stream<List<TodoModel>> fetchTodoApi() async* {
-  while(true){
-    Future.delayed(Duration(milliseconds: 1),);
-    yield* controller.fetchData();
+  Stream<List<TodoModel>> fetchTodoApi() async* {
+    while (true) {
+      Future.delayed(Duration(milliseconds: 1));
+      yield* controller.fetchData();
+    }
   }
-}
 
-Future <void> addDataApi() async{
-  if (addtaskcontroller.isButtonEnable.value) {
-    controller.addData();
-             
-            } else {
-              Get.snackbar(
-                "Warning",
-                "Task title or note can't be empty",
-                colorText: Colors.amber,
-              );
-            }
-  
-}
+  Future<void> addDataApi() async {
+    if (addtaskcontroller.isButtonEnable.value) {
+      controller.addData();
+    } else {
+      Get.snackbar(
+        "Warning",
+        "Task title or note can't be empty",
+        colorText: Colors.amber,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+  }
 
+  Future<void> updateTaskApi(String id) async {
+    if (addtaskcontroller.isButtonEnable.value) {
+      await controller.updateTask(id);
+    } else {
+      Get.snackbar(
+        "Warning",
+        "Task title or note can't be empty",
+        colorText: Colors.amber,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
+  }
 }
