@@ -17,7 +17,7 @@ class TodoViewModel extends GetxController {
     }
   }
 
-  Future<void> addDataApi() async {
+  void addDataApi() {
     if (addtaskcontroller.isButtonEnable.value) {
       controller.addData();
     } else {
@@ -30,9 +30,9 @@ class TodoViewModel extends GetxController {
     }
   }
 
-  Future<void> updateTaskApi(String id) async {
+  void updateTaskApi(String id) {
     if (addtaskcontroller.isButtonEnable.value) {
-      await controller.updateTask(id);
+      controller.updateTask(id);
     } else {
       Get.snackbar(
         "Warning",
@@ -41,5 +41,9 @@ class TodoViewModel extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
       );
     }
+  }
+
+  void deleteTaskApi(String id) {
+    controller.deleteTask(id);
   }
 }

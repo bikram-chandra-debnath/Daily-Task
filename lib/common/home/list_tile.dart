@@ -7,12 +7,15 @@ class CustomListTile extends StatelessWidget {
   const CustomListTile({
     super.key,
     required this.title,
-    this.isCompleted = false, required this.description, required  this.onEdit, required this.onDelete,
+    this.isCompleted = false,
+    required this.description,
+    required this.onEdit,
+    required this.onDelete,
   });
 
-  final String title , description;
+  final String title, description;
   final bool isCompleted;
-  final VoidCallback onEdit , onDelete;
+  final VoidCallback onEdit, onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +31,14 @@ class CustomListTile extends StatelessWidget {
       ),
       subtitle: Text(
         description,
-        style: TextStyle(color: AppColors.grey,),
-        
+        style: TextStyle(color: AppColors.grey),
+
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       ),
       leading: Checkbox(
         side: BorderSide(color: AppColors.white),
-        activeColor: AppColors.primary.withValues(alpha:0.3),
+        activeColor: AppColors.primary.withValues(alpha: 0.3),
         checkColor: AppColors.white.withValues(alpha: 0.5),
         value: isCompleted ? true : false,
         onChanged: (value) {},
@@ -43,14 +46,16 @@ class CustomListTile extends StatelessWidget {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          isCompleted? SizedBox():AppIconButton(
-            backgroundColor: Colors.transparent,
-            onPressed: onEdit,
-            icon: AppIcons.edit,
-            padding: EdgeInsets.zero,
-            minimumSize: Size(25, 25),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
+          isCompleted
+              ? SizedBox()
+              : AppIconButton(
+                backgroundColor: Colors.transparent,
+                onPressed: onEdit,
+                icon: AppIcons.edit,
+                padding: EdgeInsets.zero,
+                minimumSize: Size(25, 25),
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              ),
           AppIconButton(
             backgroundColor: Colors.transparent,
             onPressed: onDelete,

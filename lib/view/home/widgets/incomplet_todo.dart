@@ -1,3 +1,4 @@
+import 'package:daily_task/common/buttons/text_button.dart';
 import 'package:daily_task/common/home/list_tile.dart';
 import 'package:daily_task/common/widgets/rounded_container.dart';
 import 'package:daily_task/constants/color.dart';
@@ -24,13 +25,27 @@ class IncompletToDo extends StatelessWidget {
             return CustomLoading();
           } else if (snapshot.hasData) {
             final todos = snapshot.data;
+
             return ListView.separated(
               padding: EdgeInsets.zero,
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder:
                   (context, index) => CustomListTile(
-                    onDelete: () {},
+                    /// Delete Button
+                    onDelete:
+                        () => Get.dialog(
+                          CustomAlertDialogue(
+                            onDelete: () {
+                              viewModelController.deleteTaskApi(
+                                todos[index].id!.toString(),
+                              );
+                              Get.back();
+                            },
+                          ),
+                        ),
+
+                    /// Edit Button
                     onEdit: () {
                       Get.to(() => AddTask(id: todos[index].id.toString()));
                       addtaskController.titleController.text =
@@ -39,8 +54,14 @@ class IncompletToDo extends StatelessWidget {
                           todos[index].description.toString();
                     },
 
+                    /// title
                     title: todos[index].title.toString(),
+
+                    /// description
                     description: todos[index].description.toString(),
+
+                    /// check complete
+                    isCompleted: todos[index].isCompleted!,
                   ),
               separatorBuilder:
                   (context, index) => Divider(
@@ -73,6 +94,34 @@ class IncompletToDo extends StatelessWidget {
           }
         },
       ),
+    );
+  }
+}
+
+class CustomAlertDialogue extends StatelessWidget {
+  const CustomAlertDialogue({super.key, required this.onDelete});
+
+  final VoidCallback onDelete;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: AppColors.darkgrey,
+      content: Text("Do you want delete this task?"),
+      contentTextStyle: TextStyle(color: Colors.white),
+      title: Text("Warnnig !", style: TextStyle(color: AppColors.red)),
+      elevation: 6,
+      actions: [
+        AppTextButton(
+          onPressed: () => Get.back(),
+          child: Text("Cancel", style: TextStyle(color: AppColors.white)),
+        ),
+        AppTextButton(
+          onPressed: onDelete,
+          color: AppColors.red,
+          child: Text("Delete"),
+        ),
+      ],
     );
   }
 }
