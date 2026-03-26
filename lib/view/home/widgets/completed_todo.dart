@@ -27,6 +27,8 @@ class CompletedTodo extends StatelessWidget {
             shrinkWrap: true,
             itemBuilder:
                 (context, index) => CustomListTile(
+                  onDelete: () {},
+                  onEdit: () {},
                   title: 'Study lesson',
                   description:
                       "I have to study until 2 am to complet hole chapter of may book",

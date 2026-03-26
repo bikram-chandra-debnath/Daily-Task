@@ -7,11 +7,12 @@ class CustomListTile extends StatelessWidget {
   const CustomListTile({
     super.key,
     required this.title,
-    this.isCompleted = false, required this.description,
+    this.isCompleted = false, required this.description, required  this.onEdit, required this.onDelete,
   });
 
   final String title , description;
   final bool isCompleted;
+  final VoidCallback onEdit , onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class CustomListTile extends StatelessWidget {
         children: [
           isCompleted? SizedBox():AppIconButton(
             backgroundColor: Colors.transparent,
-            onPressed: () {},
+            onPressed: onEdit,
             icon: AppIcons.edit,
             padding: EdgeInsets.zero,
             minimumSize: Size(25, 25),
@@ -52,7 +53,7 @@ class CustomListTile extends StatelessWidget {
           ),
           AppIconButton(
             backgroundColor: Colors.transparent,
-            onPressed: () {},
+            onPressed: onDelete,
             icon: AppIcons.delete,
             padding: EdgeInsets.zero,
             minimumSize: Size(25, 25),
