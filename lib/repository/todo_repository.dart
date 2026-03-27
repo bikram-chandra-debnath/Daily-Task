@@ -85,7 +85,6 @@ class TodoRepository extends GetxController {
       );
       addtaskController.titleController.clear();
       addtaskController.descriptionController.clear();
-      
     } else {
       Get.snackbar(
         "Failled",
@@ -113,7 +112,34 @@ class TodoRepository extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
       );
       debugPrint(response.body);
-    }else{
+    } else {
+      Get.snackbar(
+        "Error",
+        "Failled to delete this task",
+        colorText: Colors.red,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      debugPrint("Error code is :${response.statusCode}");
+    }
+  }
+
+  Future<void> onCompletTask(String id, bool value) async {
+    final url = "https://69bfab7a72ca04f3bcb8ecaf.mockapi.io/api/todolist/$id";
+    final response = await patch(
+      Uri.parse(url),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({"isCompleted": value}),
+    );
+
+    if (response.statusCode == 200) {
+      if(value==true){Get.snackbar(
+        "Congratulations",
+        "You successfuly conpleted this task",
+        colorText: Colors.green,
+        snackPosition: SnackPosition.BOTTOM,
+      );}
+      debugPrint(response.body);
+    } else {
       Get.snackbar(
         "Error",
         "Failled to delete this task",

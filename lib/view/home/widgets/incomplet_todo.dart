@@ -32,6 +32,8 @@ class IncompletToDo extends StatelessWidget {
               shrinkWrap: true,
               itemBuilder:
                   (context, index) => CustomListTile(
+                    /// onChanged
+                    onChanged: (value) { viewModelController.onCompletTaskApi(todos[index].id.toString(), value!);},
                     /// Delete Button
                     onDelete:
                         () => Get.dialog(

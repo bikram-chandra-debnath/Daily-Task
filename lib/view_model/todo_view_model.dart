@@ -46,4 +46,8 @@ class TodoViewModel extends GetxController {
   void deleteTaskApi(String id) {
     controller.deleteTask(id);
   }
+
+  void onCompletTaskApi(String id, bool value){
+    controller.onCompletTask(id, value);
+  }
 }
