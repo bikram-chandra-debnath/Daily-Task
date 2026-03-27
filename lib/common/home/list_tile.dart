@@ -10,12 +10,13 @@ class CustomListTile extends StatelessWidget {
     this.isCompleted = false,
     required this.description,
     required this.onEdit,
-    required this.onDelete,
+    required this.onDelete, this.onChanged,
   });
 
   final String title, description;
   final bool isCompleted;
   final VoidCallback onEdit, onDelete;
+  final Function(bool?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class CustomListTile extends StatelessWidget {
         activeColor: AppColors.primary.withValues(alpha: 0.3),
         checkColor: AppColors.white.withValues(alpha: 0.5),
         value: isCompleted ? true : false,
-        onChanged: (value) {},
+        onChanged: onChanged
       ),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
